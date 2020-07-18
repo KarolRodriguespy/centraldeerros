@@ -36,7 +36,6 @@ parse==1.15.0
 psycopg2==2.8.5
 Pygments==2.6.1
 pyparsing==2.4.7
-pypiwin32==223
 pyrsistent==0.16.0
 pytz==2020.1
 recommonmark==0.4.0
