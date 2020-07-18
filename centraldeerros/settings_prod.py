@@ -1,4 +1,4 @@
-from .settings import *
+from centraldeerros.settings import *
 import dj_database_url
 
 DEBUG = False
