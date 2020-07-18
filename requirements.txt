@@ -12,6 +12,7 @@ decorator==4.4.2
 defusedxml==0.6.0
 dj-database-url==0.5.0
 Django==3.0.8
+django-heroku==0.3.1
 djangorestframework==3.11.0
 docutils==0.16
 entrypoints==0.3
@@ -35,9 +36,9 @@ parse==1.15.0
 psycopg2==2.8.5
 Pygments==2.6.1
 pyparsing==2.4.7
+pypiwin32==223
 pyrsistent==0.16.0
 pytz==2020.1
-pywin32==228
 recommonmark==0.4.0
 requests==2.24.0
 six==1.15.0
