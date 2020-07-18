@@ -1,0 +1,8 @@
+.. _swagger:
+
+Documentação da API
+===================
+
+.. raw:: html
+
+    <iframe src="../_static/swagger.html" height="750px" width="100%"></iframe>

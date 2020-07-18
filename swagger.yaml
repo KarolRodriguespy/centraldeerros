@@ -1,0 +1,261 @@
+swagger: "2.0"
+info:
+  description: "Projeto final Codenation."
+  version: "1.0.0"
+  title: "Central de erros"
+  contact:
+    email: "kr.araujo.12@gmail.com"
+host: "centraldeerros.com"
+basePath: "/events"
+tags:
+- name: "Event"
+  description: "Endpoints da central de erros"
+schemes:
+- "https"
+paths:
+  /events:
+    post:
+      tags:
+      - "events"
+      summary: "cria novo evento"
+      description: "Salva um novo evento"
+      operationId: "createEvent"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "token"
+        in: "header"
+        required: false
+        type: "string"
+      - in: "body"
+        name: "event"
+        description: "Objeto com os dados do evento a ser salvo"
+        required: true
+        schema:
+          $ref: "#/definitions/EventCreate"
+      responses:
+        "201":
+          description: "Criado com sucesso"
+        "400":
+          description: "Dados inválidos"
+         
+      security:
+      - token: []
+  /events/list:
+    get:
+      tags:
+      - "events"
+      summary: "List all events"
+      description: "Lista todos os eventos criados"
+      operationId: "listEvent"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "token"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+      security:
+      - token: []
+  /event/update/{id}:
+    put:
+      tags:
+      - "events"
+      summary: "update a event"
+      description: "Altera um event através de um id"
+      operationId: "updateEvent"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "token"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "id"
+        in: "path"
+        description: "update a event"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        "404":
+          description: "ID not found"
+      security:
+      - token: []
+      deprecated: false
+  /events/detail/{id}:
+    get:
+      tags:
+      - "events"
+      summary: "Detail a event"
+      description: "Returns a single event"
+      operationId: "getEventbyId"
+      produces:
+      - "application/json"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "token"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "id"
+        in: "path"
+        description: "ID of event that needs to be update"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "level"
+        in: "formData"
+        description: "Updated level of the event"
+        required: true
+        type: "string"
+      - name: "environment"
+        in: "formData"
+        description: "Updated environment of the event"
+        required: true
+        type: "string"
+      - name: "archive"
+        in: "formData"
+        description: "Updated archive status of the event"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Event"
+        "404":
+          description: "Event not found"
+      security:
+      - token: []
+  /events/delete/{id}:
+    delete:
+      tags:
+      - "events"
+      summary: "Deletes a event"
+      description: ""
+      operationId: "deleteEvent"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "token"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "id"
+        in: "path"
+        description: "Event id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Event not found"
+      security:
+      - token : [] 
+securityDefinitions:
+  token:
+    type: "apiKey"
+    name: "Token"
+    in: "header"
+definitions:
+  Event:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      user_id:
+        type: "integer"
+        format: "int64"
+      level:
+        type: "string"
+        description: "level log"
+        enum:
+        - "critical"
+        - "debug"
+        - "error"
+        - "warning"
+        - "information"
+      environment:
+        type: "string"
+        description: "environment log"
+        enum:
+        - "produção"
+        - "homologação"
+        - "dev"
+      log:
+        type: "string"
+        example: "teste"
+      address:
+        type: "string"
+        example: "191.177.182.188"
+      date:
+        type: "string"
+        format: "date-time"
+      archive:
+        type: "boolean"
+        default: false
+      count_events:
+        type: "integer"
+        format: "int32"
+    example: 
+      event_id: 1
+      level: "warning"
+      environment: "dev"
+      log: "teste"
+      address: "191.177.182.188"
+      date: "2015-12-26T16:12:18Z"
+      archive: false
+      count_events: 12
+  EventCreate:
+    type: "object"
+    properties:
+      level:
+        type: "string"
+        example: "warning"
+      environment: 
+        type: "string"
+        example: "dev"
+      log:
+        type: "string"
+        example: "teste"
+      address:
+        type: "string"
+        example: "191.177.182.188"
+      date:
+        type: "string"
+        example: "2015-12-26T16:12:18Z"
+      archive:
+        type: "boolean"
+        example: true
+    example: 
+      level: "warning"
+      environment: "dev"
+      log: "teste"
+      address: "191.177.182.188"
+      date: "2015-12-26T16:12:18Z"
+      
+        
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

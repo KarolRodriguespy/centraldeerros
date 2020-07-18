@@ -1,0 +1,1 @@
+web: gunicorn centraldeerros.wsgi --max-requests 1200
