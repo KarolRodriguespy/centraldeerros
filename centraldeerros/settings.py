@@ -24,7 +24,7 @@ SECRET_KEY = '9d4+og^6i$)ck59ciwvjg4utl9v##q5r#19w4e%qfzm6kirk^i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['projeto-centraldeerros.herokuapp.com']
+ALLOWED_HOSTS = [] #'projeto-centraldeerros.herokuapp.com']
 
 # Application definition
 
@@ -39,7 +39,13 @@ INSTALLED_APPS = [
     'events',
     'rest_framework.authtoken',
     'django_filters',
+    'rest_auth',
+    'allauth',
+    'allauth.account',
+    'django.contrib.sites',
 ]
+
+SITE_ID = 1
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework.authentication.TokenAuthentication',),
@@ -104,6 +110,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -121,3 +136,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/events/list'

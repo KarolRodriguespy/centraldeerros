@@ -6,6 +6,7 @@
             <h2>Adicionar Evento</h2>
         </div>
     </div>
+{% if user.is_authenticated %}
     <form method="post">
         {% csrf_token %}
 
@@ -30,4 +31,5 @@
             </div>
         </div>
     </form>
+{% endif %}
 {% endblock %}

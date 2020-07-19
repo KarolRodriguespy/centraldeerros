@@ -1,17 +1,20 @@
 # Create your views here.
+
 from django.shortcuts import redirect, render
 from django.views import generic
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.response import Response
+
 from events.forms import EventModelForm
 from events.models import Event
 
 
 
 
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def create_event(request):
     if request.method == 'POST':
         form = EventModelForm(data=request.POST)
@@ -28,7 +31,7 @@ def create_event(request):
     return render(request, 'events/create.html', context=context)
 
 
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def delete_event(request, event_id):
     """
         Deleted a log
@@ -39,7 +42,7 @@ def delete_event(request, event_id):
     return redirect('events:list')
 
 
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def update_event(request, event_id):
     """
         updated a event using a event_id
@@ -66,7 +69,7 @@ def update_event(request, event_id):
     return render(request, 'events/update.html', context=context)
 
 
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def detail_event(request, event_id):
     """
     details a log using an event_id
@@ -86,7 +89,7 @@ class EventApiListView(generic.ListView):
     list of the events
 
     """
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     model = Event
     context_object_name = 'list'
