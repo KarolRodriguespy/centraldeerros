@@ -6,6 +6,7 @@ stages:
   - name: test
 
 jobs:
+  include:
   - stage: test
     name: Unit Test
     script: python manage.py test
