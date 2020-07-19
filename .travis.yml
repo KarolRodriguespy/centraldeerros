@@ -2,14 +2,19 @@ language: python
 python:
   - "3.8.3"
 
+install:
+  - pip install codecov
+
 stages:
   - name: test
-  - name: deploy
 
 jobs:
   include:
   - stage: test
     name: Unit Test
-    script: python manage.py test
+    script: coverage run tests.py
+    after_success:
+      - codecov
+
 
 
