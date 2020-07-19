@@ -1,41 +1,41 @@
- {% extends 'base.html' %}
+{% extends 'base.html' %}
 
-  {% block title %}{{ Eventos }}{% endblock title %}
+     {% block title %}{{ Eventos }}{% endblock title %}
 
  {% block content %}
-
-  <div class="row">
-        <div class="col-sm-6">
- <h2> Listagem de eventos</h2>
-
-        </div>
-
+<div class="container">
+ <div class="row">
+  <div class="col-sm-6">
+   <h2> Listagem de eventos</h2>
+  </div>
  </div>
-    <div class="table-responsive">
-        <table class="table table-hover">
-            <thead  class="thead-light ">
-                <tr>
-                    <th>Level</th>
-                    <th>log</th>
-                    <th>Eventos</th>
-
-                </tr>
-                    {% for event in Event.objects.all %}
-                <tr>
-                <td> {{event.level}}</td>
-                <td> {{event.log}} </td>
-                <td> {{event.count_events}} </td>
-                </td>
-                </tr>
-
-
-            </thead>
-         <tbody>
-         </tbody>
-            </body>
-        </table>
-
-        {% endfor %}
-
-    </div>
+</div>
+<div class="container">
+ <div class="row">
+  <div class="col">
+   <div class="table-responsive">
+    <table class="table table-hover">
+     <thead  class="thead-light ">
+      <tr>
+       <th>Level</th>
+       <th>log</th>
+       <th>Eventos</th>
+       <th>User </th>
+       <th>Origem</th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <td> {{event.level}}</td>
+       <td> {{event.log}} </td>
+       <td> {{event.count_events}} </td>
+       <td> {{event.user}}</td>
+       <td> {{event.address}}</td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+ </div>
+</div>
 {% endblock %}

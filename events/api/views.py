@@ -73,7 +73,6 @@ def update_event(request, event_id):
     return render(request, 'events/update.html', context=context)
 
 
-@api_view(['GET'])
 @permission_classes([AllowAny])
 def detail_event(request, event_id):
     """
@@ -86,12 +85,7 @@ def detail_event(request, event_id):
 
     event = Event.objects.get(pk=event_id)
 
-    context = {
-        'events': event
-
-    }
-
-    return render(request, 'events/detail.html', context=context)
+    return render(request, 'events/detail.html', context={'event': event})
 
 
 class EventApiListView(generic.ListView):
