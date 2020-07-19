@@ -16,8 +16,7 @@ jobs:
     script: /bin/true
     deploy:
       provider: heroku
-      api_key:
-        secure: f00fd2b1-5264-417b-a4bf-a21882127cec
+      api_key: f00fd2b1-5264-417b-a4bf-a21882127cec
       app: projeto-centraldeerros
       on:
         branch: master
