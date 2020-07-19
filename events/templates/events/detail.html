@@ -21,8 +21,12 @@
 
                 </tr>
                     {% for event in Event.objects.all %}
-
-                        <td> {{event.name}} </td>
+                <tr>
+                <td> {{event.level}}</td>
+                <td> {{event.log}} </td>
+                <td> {{event.count_events}} </td>
+                </td>
+                </tr>
 
 
             </thead>
