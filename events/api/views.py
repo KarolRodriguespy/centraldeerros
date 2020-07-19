@@ -1,21 +1,14 @@
 # Create your views here.
-from django.http import Http404
 from django.shortcuts import redirect, render
 from django.views import generic
-from rest_framework.authentication import TokenAuthentication
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import status
-from rest_framework.generics import ListAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework.response import Response
-
 from rest_framework.decorators import api_view, permission_classes
-
 from events.forms import EventModelForm
 from events.models import Event
 
-from events.api.serializers import EventModelSerializer
+
 
 
 @permission_classes([AllowAny])

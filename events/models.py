@@ -37,8 +37,8 @@ class Event(models.Model):
 
     @property
     def count_events(self):
-        if self.level == self.level:
-            return Event.objects.values('log').count()
+
+        return Event.objects.values('log').count()
 
 
     def __str__(self):

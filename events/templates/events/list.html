@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Events List</h1>
+  <h2>Eventos</h2>
   {% if list %}
 
  <div class="table-responsive">
@@ -19,13 +19,12 @@
   <tbody>
     {% for event in list %}
        <tr>
-                <td> {{event.id}}</td>
-                <td> {{event.level}}</td>
+                <td><a href="{% url 'events:detail' event.pk %}" class="btn btn-link">{{event.level}}</a></td>
                 <td> {{event.log}} </td>
                 <td> {{event.count_events}} </td>
                 <td> <a href="{% url 'events:update' event.pk %}" class="input-group mb-3"><i class="fas fa-edit"></i></a></td>
                 <td><div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="{% url 'events:delete' event.pk %}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    <a href="{% url 'events:delete' event.pk %}" class="btn"><i class="fas fa-trash-alt"></i></a>
                 </td>
         </tr>
     {% endfor %}
@@ -33,4 +32,6 @@
   {% else %}
     <p>There no events availabe.</p>
   {% endif %}
+        </table>
+ </div>
 {% endblock %}
