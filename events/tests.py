@@ -25,7 +25,7 @@ class IntegrationTests(APITestCase):
                 "environment": "homologação",
                 "address": "191.177.182.188",
                 "log": "quasedeu"}
-        request = self.client.post('http://127.0.0.1:8000/events/create', data=data, format='json')
+        request = self.client.post('http://projeto-centraldeerros.herokuapp.com/events/create', data=data, format='json')
         self.assertEqual(request.status_code, status.HTTP_201_CREATED)
 
     def test_create_event_without_authentication(self):
@@ -35,7 +35,7 @@ class IntegrationTests(APITestCase):
                 "environment": "homologação",
                 "address": "191.177.182.188",
                 "log": "quasedeu"}
-        request = self.client.post('http://127.0.0.1:8000/events/create', data=data, format='json')
+        request = self.client.post('http://projeto-centraldeerros.herokuapp.com/events/create', data=data, format='json')
         self.assertEqual(request.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_list_event(self):
@@ -43,24 +43,24 @@ class IntegrationTests(APITestCase):
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + str(self.token))
 
-        request = self.client.get('http://127.0.0.1:8000/events/list', format='json')
+        request = self.client.get('http://projeto-centraldeerros.herokuapp.com/events/list', format='json')
         self.assertEquals(request.status_code, status.HTTP_200_OK)
 
     def test_list_event_without_authentication(self):
         self.client = APIClient()
-        request = self.client.get('http://127.0.0.1:8000/events/list', format='json')
+        request = self.client.get('http://projeto-centraldeerros.herokuapp.com/events/list', format='json')
         self.assertEquals(request.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_detail_event(self):
         self.token = Token.objects.get(user__username='admin')
         self.client = APIClient()
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + str(self.token))
-        request = self.client.get('http://127.0.0.1:8000/events/detail/1', format='json')
+        request = self.client.get('http://projeto-centraldeerros.herokuapp.com/events/detail/1', format='json')
         self.assertEquals(request.status_code, status.HTTP_200_OK)
 
     def test_detail_event_without_authentication(self):
         self.client = APIClient()
-        request = self.client.get('http://127.0.0.1:8000/events/detail/1', format='json')
+        request = self.client.get('http://projeto-centraldeerros.herokuapp.com/events/detail/1', format='json')
         self.assertEquals(request.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_deleted_event(self):
@@ -71,7 +71,7 @@ class IntegrationTests(APITestCase):
 
         new_event = Event.objects.create(user=self.user, level='error', environment='dev', address='191.177.182.188',
                                          log='teste')
-        request = self.client.delete('http://127.0.0.1:8000/events/delete/1', kwargs={'pk': new_event.pk},
+        request = self.client.delete('http://projeto-centraldeerros.herokuapp.com/events/delete/1', kwargs={'pk': new_event.pk},
                                      format='json')
         self.assertEquals(request.status_code, status.HTTP_204_NO_CONTENT)
 
@@ -81,6 +81,6 @@ class IntegrationTests(APITestCase):
 
         new_event = Event.objects.create(user=self.user, level='error', environment='dev', address='191.177.182.188',
                                          log='teste')
-        request = self.client.delete('http://127.0.0.1:8000/events/delete/1', kwargs={'pk': new_event.pk},
+        request = self.client.delete('http://projeto-centraldeerros.herokuapp.com/events/delete/2', kwargs={'pk': new_event.pk},
                                      format='json')
         self.assertEquals(request.status_code, status.HTTP_401_UNAUTHORIZED)
