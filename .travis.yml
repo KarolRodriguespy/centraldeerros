@@ -11,13 +11,13 @@ jobs:
   - stage: test
     name: Unit Test
     script: python manage.py test
-  - stage: deply
+  - stage: deploy
     name: Heroku Deploy
     script: /bin/true
     deploy:
       provider: heroku
       api_key:
-        secure: WTIZISlq2WnOasHq/ZYrrgCJhkcUxDKqDGA1ROmwdCIwEQocohyAn1h3rGC4HdKr8MfUOm/zMoYOVztiyv642jlZr9DC9K80ujVreeYgpet3g7cdLGxqjs3RGuM2Ffu8kv1cqNOMDQEP1fOty5hs3WzV2BB++4+7D/mtHZjozlwZaKPqukgI6fJJpWRK7e2N5fG/ujyKPm9CqxoIJC57GwP//DKoVLsx8m1kOSgG6/VdV1XY8B96kCtNzlVaSWDLYVqLZDM6gF9jbTR4/eyGB9VF9BofbvOI3hceodsxyDsk5uHRGpIiX0naVRcjohCYwhCqgGdIZiHq8a7/0KG8o61i+FTEKFq9oWx72UHkrXZdDzvvqd7UKLLIhjOqtRLqosgcv3wgkT3+mP36vcaVvfBPIIw52KmEhtCH+WqZf4QPqQdxLUTCmAFoRLZ7wp7VW2ZJWd1R/LLCZ9PKcd8NSqiFN7TVKsir68NorMj3ZvEvJAZvHINbnDhmcoL/be+sPYJ2lCJ3aTYvJLJJmeRACLijI2o/TAjsRrpk41AKAf4RP0/RgOYfu2v994Tvl8rWj8ivIlDhEmK9aMUD3sJrhGNRR3vIbEKHtMbcOqNr0vXVbPXZdh1c86NtZChQr65FhnSBiw073scH9J82DzaXypWZkvqxvVK44oHoj8yA3W8=
+        secure: Vc3u99wEUz/MVD0qWmBUItWpC0qlEJ6tC/FUpPPxCylabkRAPiaoHtLR7kryPUuMvwZjdiP06pm1C1HjlzwJMnoPQ4XvLc5ge05b2EwymnXACRUA8TPQs0Kor0RMUXxHSVRvvxiS2f2YHEomWBYnhRK1G7mg0I9r1ETMtBy79fs6Wi5LwvpFQa2bMGT2VMtDgmIIZIYrh/QhWmxuTG3o8WTw5bcrreCyFeylNbZ2aCwYST3J0omoJ1R/kRyYnBDtYXIJBdd6du/mj/rrD07nVBLtPSp3V496GCdJQh9hJ7LFvINfgIpMdAvRxdpWNldgQG2yllG2oPTY37v6o/jvCCtJLpQrzkOHXthR8VP/rVOr+eRLymsAeoweWT7edeCPUllLS4o9SjpukLtvwPf0t8XhQLhN6FLLtFP10PBnRpm5/bvBHKj33Pp3DDSb7F60CzQuLAqXs99wz6YRxqgHniIoG1N89zxnWCIlGF/ftDkueQt0pvB60tOPNXnOGnWJSwboGilJdMivD0a3QfwWBF5YKAKCzD7q0cUjFfRO9+b3gzH8AYLuiDG3LTzV5trQWKFkWShu4zZXNJtyzwIF0fBThPxslTTZYYDTx2tXPMoe+wfAiGhoWGZTYS+3P1VunCk3znYZ0IQGoxm3jGwY9mCLHLiXjQBX49N3Bd8n+eQ=
       app: projeto-centraldeerros
       on: master
       run: "python manage.py migrate"
