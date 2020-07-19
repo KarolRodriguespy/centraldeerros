@@ -5,7 +5,7 @@ info:
   title: "Central de erros"
   contact:
     email: "kr.araujo.12@gmail.com"
-host: "centraldeerros.com"
+host: "projeto-centraldeerros.herokuapp.com"
 basePath: "/events"
 tags:
 - name: "Event"
@@ -13,6 +13,24 @@ tags:
 schemes:
 - "https"
 paths:
+  /get_token:
+    post:
+      description: "Return token"
+      parameters:
+      - name: "username"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "header"
+        required: true
+        type: "string"
+      responses:
+        "201":
+          description: "Token criado com sucesso"
+        "400":
+          description: "Dados inválidos"
+      
   /events:
     post:
       tags:
@@ -254,7 +272,20 @@ definitions:
       log: "teste"
       address: "191.177.182.188"
       date: "2015-12-26T16:12:18Z"
+  Get_token:
+    type: "object"
+    properties:
+      username:
+        type: "string"
+        example: "Jose"
+      password:
+        type: "string"
+        example: "123456"
+    example: 
+      name: "Jose"
+      password: "123456"
       
+    
         
 externalDocs:
   description: "Find out more about Swagger"

@@ -1,14 +1,15 @@
 # Create your views here.
-from rest_framework.authentication import TokenAuthentication
+from django.shortcuts import redirect, render
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 from rest_framework.generics import ListAPIView
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from rest_framework.decorators import api_view, permission_classes
 
+from events.forms import EventModelForm
 from events.models import Event
 
 from events.api.serializers import EventModelSerializer
@@ -30,14 +31,19 @@ def create_event(request):
     :return: data
     """
 
-    event = Event()
-    serializer = EventModelSerializer(event, data=request.data)
-
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    if request.method == 'POST':
+        form = EventModelForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('events:list')
     else:
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        form = EventModelForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'events/create.html', context=context)
 
 
 @api_view(['DELETE'])
