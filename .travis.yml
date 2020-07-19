@@ -16,7 +16,8 @@ jobs:
     script: /bin/true
     deploy:
       provider: heroku
-      api_key: f00fd2b1-5264-417b-a4bf-a21882127cec
+      api_key:
+        secure: "RvTb27g+u7nCCdT3bFg3h90pHEmAC8C3kJOU5vMMnnrVZX2nNE436ewH+8itbNu+Kv3LiZV7qTFCeS4boU72tS2yPigW+MYRNiqn4XMjno49my8E2oipLTVGcTHPv2dqYoTiU3NY1HUFyzYOlFabAUlZ1khV5oE22T0UsO71i/0U3nFSWkqjFjkNBhqNqzduNy0pX2YO3KpGac1xXGhPHFkYs2sD7cWKSTmNtfMPW2n4oP8f93cRIj5ls02d7NbE+oOoggcWn4KCPMTgFM87h2sabdcSfCYtiFeVz9jSa3Q4lcdOe6feRrHvX/YIa0VZF8tCvWpE/uMl5o3vkoD3dn7EBnT6XdkIR/h/SMV96JPUu+4Mw/FlF/w0nk71re+khD7qZP3yHSL9aFllvZCjztzsP2hO0ODfnxP7El3mVWc8ZjTCVEfju9067LFUaV7QXFTiCPHbkbFdjpZViTr0t/crWYxSEilkumOHXrBILvJGW+oWrxR99OLjEPYCS3si9XvpxGa0CLaDWv+URaCAXnLAmivHwRxHwx9oz4eXKmM9Dup3FTlllJ6gBDbj53g16eXlTt/zVRUpg05b+DLP0ml60XVo8DxMwNMJBFAubvG5427p24NbBfSTrjG0gIQOGraedienYjNeyV23HPElX8sunpd7GKHANRFVO1gbwFs="
       app: projeto-centraldeerros
       on:
         branch: master
