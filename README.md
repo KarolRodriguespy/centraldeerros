@@ -1,4 +1,4 @@
-# Central de Erros
+# Central de Erros    [![Build Status](https://travis-ci.com/KarolRodriguespy/centraldeerros.svg?branch=master)](https://travis-ci.com/KarolRodriguespy/centraldeerros)
 
 ## Objetivo
 
@@ -73,11 +73,11 @@ Windows
 
  >
 
-       Acesse o link: http://127.0.0.1:8000/get_token/ e informe o seu usuário e senha no body da requisição
+       Acesse o link: http://projeto-centraldeerros.herokuapp.com/get_token/ e informe o seu usuário e senha no body da requisição
 - Para visualizar os eventos:
 
 >
 
-       Acesse o link: http://127.0.0.1:8000/events/list e informe o seu token no header da sua requisição
+       Acesse o http://projeto-centraldeerros.herokuapp.com/events/list e informe o seu token no header da sua requisição
 
              
