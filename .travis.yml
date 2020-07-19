@@ -16,9 +16,10 @@ jobs:
     script: /bin/true
     deploy:
       provider: heroku
-      api_key:
-        secure: Vc3u99wEUz/MVD0qWmBUItWpC0qlEJ6tC/FUpPPxCylabkRAPiaoHtLR7kryPUuMvwZjdiP06pm1C1HjlzwJMnoPQ4XvLc5ge05b2EwymnXACRUA8TPQs0Kor0RMUXxHSVRvvxiS2f2YHEomWBYnhRK1G7mg0I9r1ETMtBy79fs6Wi5LwvpFQa2bMGT2VMtDgmIIZIYrh/QhWmxuTG3o8WTw5bcrreCyFeylNbZ2aCwYST3J0omoJ1R/kRyYnBDtYXIJBdd6du/mj/rrD07nVBLtPSp3V496GCdJQh9hJ7LFvINfgIpMdAvRxdpWNldgQG2yllG2oPTY37v6o/jvCCtJLpQrzkOHXthR8VP/rVOr+eRLymsAeoweWT7edeCPUllLS4o9SjpukLtvwPf0t8XhQLhN6FLLtFP10PBnRpm5/bvBHKj33Pp3DDSb7F60CzQuLAqXs99wz6YRxqgHniIoG1N89zxnWCIlGF/ftDkueQt0pvB60tOPNXnOGnWJSwboGilJdMivD0a3QfwWBF5YKAKCzD7q0cUjFfRO9+b3gzH8AYLuiDG3LTzV5trQWKFkWShu4zZXNJtyzwIF0fBThPxslTTZYYDTx2tXPMoe+wfAiGhoWGZTYS+3P1VunCk3znYZ0IQGoxm3jGwY9mCLHLiXjQBX49N3Bd8n+eQ=
       app: projeto-centraldeerros
-      on: master
+      on:
+        branch: master
+      api_key:
+        secure: e4Hm18Soq+WvoiJNRSLW0KU2AqISmRA9uvnmE/3rMxU4uwRLpNpr0AV0hG29zHh/cKoIasnMePkxWGQDCpkuC5ayF6VS8KWims0MufOW8hbIDQQoq3ojeFqXIIdqpINQSA8agR9FDNdFl2ZXSJInsj64ZDZQxcDdbdU1x3iyXMB7kIJZopTmO3MTPZtL/kKPtUWAnig+w4hHl5cdcKkJyrxlUsHucGt72Wah9flKlV3Qbb4/jjBTmmRW1MFThsCNSxh1XqO1K9KvKAgo/ADuSQL2aJRHB478L39PHZvn2GBP/lXlhUJMx8a3F0FBRCQnaTtvTWrTs4IJrDr7n8pdhZGJMS8LnnM5DvgPH/w7T2XyAzkC9U/6GQxBA3MF1JvMKXxx+IjexY/2qsjd2w0WAo0TDsnz9MEN4jLcnMJc+6ujDm9Xs6VUqztVjWnRJ81Sp2JUeZKFwvKt8s+PfQgjSrtzJgvpqysOfdmuKeOJsd+vbImmYHqJn3LHjzGf+J+K/nRocIKoLgW4HziJLgr/M5VtZT/5DpbNXUz1mfWmXkMQlomilr/5oBdjDQzjnWKsjjIVVjEv+OkU+/BHJ0h/2vsgI/P9zl+MqttLJKxr8mI4D/lwOiqOP+uFTX5/5eWwPW1WzqK+AHNXM8KHjEBZWB7QE5WWnizHIqAp01+0GAs=
       run: "python manage.py migrate"
 
