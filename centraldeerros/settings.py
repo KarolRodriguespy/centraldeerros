@@ -24,7 +24,7 @@ SECRET_KEY = '9d4+og^6i$)ck59ciwvjg4utl9v##q5r#19w4e%qfzm6kirk^i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['projeto-centraldeerros.herokuapp.com']
+ALLOWED_HOSTS = [] #'projeto-centraldeerros.herokuapp.com'
 
 # Application definition
 
@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'events',
     'rest_framework.authtoken',
+    'django_filters',
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework.authentication.TokenAuthentication',)
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework.authentication.TokenAuthentication',),
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
 MIDDLEWARE = [
@@ -59,7 +61,7 @@ ROOT_URLCONF = 'centraldeerros.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'events/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

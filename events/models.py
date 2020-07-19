@@ -42,4 +42,4 @@ class Event(models.Model):
 
 
     def __str__(self):
-        return f'{self.level} - {self.count_events}'
+        return self.log

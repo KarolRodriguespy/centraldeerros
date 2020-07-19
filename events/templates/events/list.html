@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Events List</h1>
+  {% if list %}
+
+ <div class="table-responsive">
+        <table class="table table-hover">
+            <thead  class="thead-light ">
+                <tr>
+                    <th>ID</th>
+                    <th>Level</th>
+                    <th>log</th>
+                    <th>Eventos</th>
+                    <th>Alterar</th>
+                    <th>Deletar</th>
+
+                </tr>
+            </thead>
+  <tbody>
+    {% for event in list %}
+       <tr>
+                <td> {{event.id}}</td>
+                <td> {{event.level}}</td>
+                <td> {{event.log}} </td>
+                <td> {{event.count_events}} </td>
+                <td> <a href="{% url 'events:update' event.pk %}" class="input-group mb-3"><i class="fas fa-edit"></i></a></td>
+                <td><div class="btn-group" role="group" aria-label="Basic example">
+                    <a href="{% url 'events:delete' event.pk %}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                </td>
+        </tr>
+    {% endfor %}
+  </tbody>
+  {% else %}
+    <p>There no events availabe.</p>
+  {% endif %}
+{% endblock %}
