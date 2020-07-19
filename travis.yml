@@ -8,4 +8,4 @@ stages:
 jobs:
   - stage: test
     name: Unit Test
-    script: python manage.py test
+    script: python manage.py
