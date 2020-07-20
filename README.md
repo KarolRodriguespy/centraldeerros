@@ -54,15 +54,7 @@ Windows
  >
 
        python manage.py migrate
-
--  Crie um usuario
-
- >
-
-     python manage.py shell 
-     from django.contrib.auth.models import User   
-     user = User.objects.create_user('<yourname>', password='<password>')
-     user.save()   
+ 
      
 - Rode o servidor 
 
@@ -70,11 +62,22 @@ Windows
 
        python manage.py runserver
        
+- Crie um usuário:
+ >
+
+       Acesse o endereço: https://projeto-centraldeerros.herokuapp.com/rest-auth/registration/ e informe:
+       - Um nome de usuário
+       - email
+       - Senha
+       
+       
 - Crie o Token
 
  >
 
-       Acesse o link: http://projeto-centraldeerros.herokuapp.com/get_token/ e informe o seu usuário e senha no body da requisição
+       Acesse o link: https://projeto-centraldeerros.herokuapp.com/rest-auth/login/ e informe o seu usuário, email e senha
+       
+       
 - Para visualizar os eventos:
 
 >
