@@ -12,8 +12,6 @@ from events.forms import EventModelForm
 from events.models import Event
 
 
-
-
 @permission_classes([IsAuthenticated])
 def create_event(request):
     if request.method == 'POST':

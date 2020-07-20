@@ -71,7 +71,7 @@ class IntegrationTests(APITestCase):
 
         new_event = Event.objects.create(user=self.user, level='error', environment='dev', address='191.177.182.188',
                                          log='teste')
-        request = self.client.delete('http://projeto-centraldeerros.herokuapp.com/events/delete/1', kwargs={'pk': new_event.pk},
+        request = self.client.delete('http://projeto-centraldeerros.herokuapp.com/events/delete/', kwargs={'pk': new_event.pk},
                                      format='json')
         self.assertEquals(request.status_code, status.HTTP_204_NO_CONTENT)
 

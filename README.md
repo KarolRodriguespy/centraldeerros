@@ -1,4 +1,4 @@
-# Central de Erros    [![Build Status](https://travis-ci.com/KarolRodriguespy/centraldeerros.svg?branch=master)](https://travis-ci.com/KarolRodriguespy/centraldeerros)
+# Central de Erros    
 
 ## Objetivo
 
