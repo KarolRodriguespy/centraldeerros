@@ -67,26 +67,5 @@ Windows
 
        python manage.py runserver
        
-- Crie um usuário:
- >
-
-       Acesse o endereço: https://projeto-centraldeerros.herokuapp.com/rest-auth/registration/ e informe:
-       - Um nome de usuário
-       - email
-       - Senha
-       
-       
-- Crie o Token
-
- >
-
-       Acesse o link: https://projeto-centraldeerros.herokuapp.com/rest-auth/login/ e informe o seu usuário, email e senha
-       
-       
-- Para visualizar os eventos:
-
->
-
-       Acesse o http://projeto-centraldeerros.herokuapp.com/events/list e informe o seu token no header da sua requisição
 
              
