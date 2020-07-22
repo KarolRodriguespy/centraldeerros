@@ -18,10 +18,10 @@ Em projetos modernos é cada vez mais comum o uso de arquiteturas baseadas em se
 
 [link produção](https://projeto-centraldeerros.herokuapp.com/)
 
-**Usuário para acesso:
+**Usuário para testes em produção**:
 
-username: admin
-senha: 123456
+*username:* admin
+*senha:* 123456
 
 ### Para testar Localmente
 
