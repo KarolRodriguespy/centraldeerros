@@ -16,7 +16,12 @@ Em projetos modernos é cada vez mais comum o uso de arquiteturas baseadas em se
 
 [Documentação API](https://app.swaggerhub.com/apis-docs/KarolRodriguespy/centraldeerros/1.0.0) 
 
+[link produção](https://projeto-centraldeerros.herokuapp.com/)
 
+**Usuário para acesso:
+
+username: admin
+senha: 123456
 
 ### Para testar Localmente
 
