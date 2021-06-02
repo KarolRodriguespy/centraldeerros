@@ -59,6 +59,6 @@ sqlparse==0.3.1
 testpath==0.4.4
 traitlets==4.3.3
 travis==0.0.3
-urllib3==1.25.9
+urllib3==1.26.5
 webencodings==0.5.1
 whitenoise==5.1.0
